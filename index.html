@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Knitaly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #171D2B;
+    --parchment: #F3E9D8;
+    --beige: #D8C8B2;
+    --green: #263F35;
+    --pink: #F4A7B9;
+    --terracotta: #E85A4A;
+    --h-pad: clamp(32px, 6vw, 96px);
+    --section-pad-v: clamp(64px, 8vw, 112px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 20px;
+    color: var(--navy);
+    background: var(--parchment);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--parchment);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px var(--h-pad);
+    height: 64px;
+  }
+
+  .nav-logo {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: rgba(23,29,43,0.08);
+    border: 1px dashed rgba(23,29,43,0.25);
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav-link {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--terracotta);
+    letter-spacing: 0.01em;
+  }
+
+  .nav-pill {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    border: 1.5px solid var(--navy);
+    border-radius: 100px;
+    padding: 7px 18px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-pill:hover {
+    background: var(--navy);
+    color: var(--parchment);
+  }
+
+  /* ── HERO ── */
+  #hero {
+    background: var(--beige);
+    min-height: 100vh;
+    padding-top: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: var(--h-pad);
+    padding-right: var(--h-pad);
+    padding-bottom: 80px;
+  }
+
+  .hero-inner {
+    max-width: 820px;
+  }
+
+  .hero-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(44px, 6.5vw, 80px);
+    line-height: 1.05;
+    color: var(--navy);
+    display: flex;
+    align-items: flex-end;
+    gap: 0.2em;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    margin-bottom: 20px;
+  }
+
+  .hero-headline .word-ein,
+  .hero-headline .word-rest {
+    font-family: 'Fraunces', serif;
+    font-style: normal;
+    font-weight: 400;
+    color: var(--navy);
+  }
+
+  .hero-headline .word-brief {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--terracotta);
+    font-size: clamp(80px, 12vw, 148px);
+    line-height: 0.88;
+    display: inline-block;
+  }
+
+  .hero-subline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(22px, 3vw, 32px);
+    color: var(--navy);
+    margin-bottom: 56px;
+  }
+
+  .hero-body {
+    font-family: 'Newsreader', serif;
+    font-size: 26px;
+    line-height: 1.5;
+    color: var(--navy);
+    max-width: 820px;
+    margin-bottom: 40px;
+  }
+
+  .hero-tags {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .hero-tag {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.07em;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .diamond {
+    color: var(--terracotta);
+    font-size: 18px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--navy);
+    color: #fff;
+    font-family: 'Newsreader', serif;
+    font-size: 26px;
+    font-weight: 400;
+    padding: 16px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--pink);
+    color: var(--navy);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--terracotta);
+    font-size: 22px;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  #hero { position: relative; }
+
+  /* ── SECTION BASE ── */
+  section {
+    padding: var(--section-pad-v) var(--h-pad);
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 44px);
+    letter-spacing: 0.04em;
+    text-align: center;
+    color: var(--navy);
+    text-transform: uppercase;
+    margin-bottom: clamp(40px, 6vw, 72px);
+  }
+
+  /* ── TITLE CENTERING OVERRIDE ── */
+  #einen-brief .section-title {
+    margin-left: 60px;
+  }
+  .divider {
+    text-align: center;
+    color: var(--terracotta);
+    font-size: 11px;
+    letter-spacing: 6px;
+    margin: 0 auto;
+  }
+
+  /* ── SECTION 2: EINEN BRIEF? ── */
+  #einen-brief {
+    background: var(--parchment);
+    padding-left: calc(var(--h-pad) - 60px);
+  }
+
+  .zwei-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: start;
+  }
+
+  .carousel-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .carousel {
+    width: 72%;
+    aspect-ratio: 3/4;
+    background: var(--beige);
+    border: 1px solid rgba(23,29,43,0.1);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 24px;
+  }
+
+  .mock-letter-cover {
+    background: var(--parchment);
+    width: 100%;
+    max-width: 240px;
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border: 1px solid rgba(23,29,43,0.12);
+    padding: 28px;
+    text-align: center;
+  }
+
+  .mock-letter-cover .lk-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    color: var(--green);
+    text-transform: lowercase;
+  }
+
+  .mock-letter-cover .lk-big {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 36px;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .mock-timer {
+    width: 70px;
+    height: 70px;
+  }
+
+  .mock-letter-cover .issue-label {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--navy);
+  }
+
+  .mock-letter-cover .diamonds-small {
+    color: var(--terracotta);
+    font-size: 8px;
+    letter-spacing: 4px;
+  }
+
+  .mock-letter-cover .author {
+    font-family: 'Newsreader', serif;
+    font-size: 12px;
+    color: var(--navy);
+    opacity: 0.7;
+  }
+
+  .mock-letter-cover .k-logo {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--navy);
+    margin-top: 8px;
+  }
+
+  .carousel-caption {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--navy);
+    opacity: 0.65;
+    text-align: right;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .brief-intro {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .brief-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .brief-bullets li {
+    font-size: 20px;
+    line-height: 1.6;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .brief-bullets li .diamond {
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  .brief-closing p {
+    font-size: 20px;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  /* ── SECTION 3: WER SCHREIBT ── */
+  #wer-schreibt {
+    background: var(--beige);
+  }
+
+  .wer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: start;
+  }
+
+  .wer-text p {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .wer-text .per-post {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  .signature {
+    font-family: 'Caveat', cursive;
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--terracotta);
+    line-height: 1;
+    margin-top: 28px;
+  }
+
+  .wer-image-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wer-image {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: var(--beige);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .wer-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .wer-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #c8b89a 0%, #b0a085 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(23,29,43,0.2);
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 18px;
+  }
+
+  .wer-caption {
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--navy);
+    opacity: 0.6;
+    text-align: right;
+    margin-top: 10px;
+  }
+
+  /* ── SECTION 4: CTA ── */
+  #briefkasten {
+    background: var(--green);
+    text-align: center;
+    padding: var(--section-pad-v) var(--h-pad);
+  }
+
+  #briefkasten * {
+    color: var(--parchment);
+  }
+
+  .cta-subhead {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: 1.4;
+    margin-bottom: 36px;
+    color: var(--parchment);
+  }
+
+  .btn-terracotta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--terracotta);
+    color: var(--parchment) !important;
+    font-family: 'Newsreader', serif;
+    font-size: 26px;
+    font-weight: 400;
+    padding: 16px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    margin-bottom: 40px;
+  }
+
+  .btn-terracotta:hover {
+    background: var(--pink);
+    color: var(--navy) !important;
+  }
+
+  .cta-divider {
+    color: var(--terracotta) !important;
+    font-size: 16px;
+    letter-spacing: -1px;
+    margin-bottom: 36px;
+    display: block;
+  }
+
+  .cta-body {
+    font-family: 'Newsreader', serif;
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--parchment);
+    max-width: 680px;
+    margin: 0 auto 36px;
+  }
+
+  .email-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .email-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid var(--parchment);
+    padding: 12px 4px;
+    font-family: 'Newsreader', serif;
+    font-size: 20px;
+    color: var(--parchment);
+    outline: none;
+    min-width: 0;
+  }
+
+  .email-input::placeholder {
+    color: rgba(243,233,216,0.45);
+  }
+
+  .btn-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--parchment);
+    color: var(--navy) !important;
+    font-family: 'Newsreader', serif;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 12px 24px;
+    border-radius: 100px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 16px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .btn-email:hover {
+    background: var(--pink);
+    color: var(--navy) !important;
+  }
+
+  /* ── SECTION 5: FAQ ── */
+  #faq {
+    background: var(--parchment);
+  }
+
+  .faq-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(30px, 4.5vw, 52px);
+    color: var(--navy);
+    margin-bottom: clamp(40px, 6vw, 64px);
+    text-align: left;
+    text-transform: none;
+    letter-spacing: 0.01em;
+  }
+
+  .faq-list {
+    max-width: 100%;
+  }
+
+  .faq-item {
+    border-top: 1px solid var(--navy);
+    cursor: pointer;
+  }
+
+  .faq-item:last-child {
+    border-bottom: 1px solid var(--navy);
+  }
+
+  .faq-item:hover .faq-icon {
+    background: var(--pink);
+    border-color: var(--pink);
+  }
+
+  .faq-item:hover .faq-question,
+  .faq-item:hover .faq-num {
+    color: var(--pink);
+  }
+
+  .faq-header {
+    display: flex;
+    align-items: center;
+    padding: 22px 0;
+    gap: 20px;
+  }
+
+  .faq-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--navy);
+    opacity: 0.5;
+    min-width: 28px;
+    letter-spacing: 0.04em;
+    transition: color 0.15s;
+  }
+
+  .faq-question {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--navy);
+    flex: 1;
+    line-height: 1.3;
+    transition: color 0.15s;
+  }
+
+  .faq-icon {
+    width: 34px;
+    height: 34px;
+    border: 1.5px solid var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--navy);
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .faq-item.open .faq-icon {
+    background: var(--pink);
+    border-color: var(--pink);
+  }
+
+  .faq-answer {
+    display: none;
+    padding: 0 0 24px 48px;
+    font-family: 'Newsreader', serif;
+    font-size: 20px;
+    line-height: 1.65;
+    color: var(--navy);
+    max-width: calc(100% - 60px);
+  }
+
+  .faq-item.open .faq-answer {
+    display: block;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green);
+    padding: 28px var(--h-pad);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: rgba(243,233,216,0.12);
+    border: 1px dashed rgba(243,233,216,0.35);
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .footer-links a {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--parchment);
+    text-decoration: none;
+  }
+
+  .footer-links a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .footer-links .sep {
+    color: var(--parchment);
+    opacity: 0.4;
+    font-size: 14px;
+  }
+
+  .footer-copy {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    color: var(--parchment);
+    opacity: 0.55;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .zwei-col,
+    .wer-grid {
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+
+    #einen-brief {
+      padding-left: var(--h-pad);
+    }
+
+    #einen-brief .section-title {
+      margin-left: 0;
+    }
+
+    .carousel-wrap {
+      align-items: center;
+    }
+
+    .carousel {
+      width: 80%;
+    }
+
+    .carousel-caption {
+      text-align: center;
+      width: 80%;
+    }
+
+    .wer-image-wrap {
+      order: -1;
+    }
+
+    .wer-caption {
+      text-align: left;
+    }
+
+    .hero-headline {
+      font-size: clamp(36px, 9vw, 56px);
+      flex-wrap: wrap;
+      white-space: normal;
+    }
+
+    .hero-headline .word-brief {
+      font-size: clamp(68px, 16vw, 100px);
+    }
+
+    .hero-body {
+      font-size: 22px;
+    }
+
+    .email-form {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+    }
+
+    .btn-email {
+      margin-left: 0;
+      justify-content: center;
+    }
+
+    footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-right {
+      align-items: flex-start;
+    }
+
+    .footer-links {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 480px) {
+    :root {
+      --h-pad: 24px;
+      --section-pad-v: 56px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" aria-label="Logo-Platzhalter"></div>
+  <div class="nav-right">
+    <a href="#wer-schreibt" class="nav-link">Wer schreibt?</a>
+    <a href="#briefkasten" class="nav-pill">IN DEN BRIEFKASTEN</a>
+  </div>
+</nav>
+
+<!-- SECTION 1: HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <h1 class="hero-headline">
+      <span class="word-ein">Ein</span>
+      <span class="word-brief">Brief</span>
+      <span class="word-rest">von mir an dich.</span>
+    </h1>
+    <p class="hero-subline">Auf Papier. Per Post. Jeden Monat.</p>
+    <p class="hero-body">Über Stricken, Reisen, kleine Beobachtungen und das, was passiert,<br>wenn man losgeht, bevor man genau weiß, wohin.</p>
+    <div class="hero-tags">
+      <span class="hero-tag"><span class="diamond">◆</span> ERSTER BRIEF: AUGUST 2026</span>
+      <span class="hero-tag"><span class="diamond">◆</span> AUS MERAN & VON UNTERWEGS</span>
+    </div>
+    <a href="#briefkasten" class="btn-primary">In den Briefkasten →</a>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">
+    <svg width="24" height="14" viewBox="0 0 24 14" fill="none">
+      <path d="M2 2L12 12L22 2" stroke="#E85A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<!-- SECTION 2: EINEN BRIEF? -->
+<section id="einen-brief">
+  <h2 class="section-title">Einen Brief?</h2>
+  <div class="zwei-col">
+    <div class="carousel-wrap">
+      <div class="carousel">
+        <div class="carousel-placeholder">
+          <div class="mock-letter-cover">
+            <span class="lk-title">little knitaly</span>
+            <span class="lk-big">Post</span>
+            <svg class="mock-timer" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="35" cy="38" r="26" stroke="#171D2B" stroke-width="1.5" fill="#F3E9D8"/>
+              <path d="M28 14h14M35 14v4" stroke="#171D2B" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="35" cy="38" r="3" fill="#171D2B"/>
+              <line x1="35" y1="38" x2="35" y2="24" stroke="#171D2B" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="35" y1="38" x2="44" y2="38" stroke="#171D2B" stroke-width="1" stroke-linecap="round"/>
+              <text x="35" y="58" font-family="Georgia, serif" font-size="7" fill="#171D2B" text-anchor="middle" opacity="0.6">25 min</text>
+            </svg>
+            <span class="issue-label">August Issue</span>
+            <span class="diamonds-small">◆◆◆</span>
+            <span class="author">von Sina Flingelli</span>
+            <span class="k-logo">k</span>
+          </div>
+        </div>
+      </div>
+      <p class="carousel-caption">Einblick in einen Brief.</p>
+    </div>
+    <div class="brief-right">
+      <p class="brief-intro">Ja, tatsächlich. Ich schreibe dir jeden Monat einen echten Brief (so wie früher in den 90ern, als wir Brieffreundschaften hatten)</p>
+      <ul class="brief-bullets">
+        <li><span class="diamond">◆</span><span>Über Beobachtungen und Gedanken die auftauchen, wenn ich jeden Nachmittag für 25min stricke.</span></li>
+        <li><span class="diamond">◆</span><span>Von regional hergestellten Wollen in fernen Orten.</span></li>
+        <li><span class="diamond">◆</span><span>Von kleinen Entdeckungen, aus mir noch unbekannten Städten, die man online nie so finden würde.</span></li>
+        <li><span class="diamond">◆</span><span>Vom Reisen und loszugehen, bevor man eigentlich weiß wohin.</span></li>
+      </ul>
+      <div class="brief-closing">
+        <p>Einmal im Monat liegt ein kleines Heft in deinem Briefkasten, auf schwerem Papier gedruckt, immer ein wenig anders, zugeklebt und ohne Umschlag. Mit Briefmarke und Poststempel drauf.</p>
+        <p>Die ersten Briefe schicke ich aus Meran, ab Oktober dann aus unterschiedlichen Städten und Ländern.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: WER SCHREIBT -->
+<section id="wer-schreibt">
+  <h2 class="section-title">Wer schreibt</h2>
+  <div class="wer-grid">
+    <div class="wer-text">
+      <p>Ich lebe mit meinem Mann Jakob und unseren drei Kindern in Meran, Südtirol, und stricke jeden Nachmittag 25 Minuten, kurz bevor ich unsere jüngste Tochter aus dem Kindergarten abhole. Im Winter stricke ich im Schaukelstuhl, im Sommer auf dem Balkon. Immer mit grünem Tee. Ich stricke an dem weiter, worauf ich gerade Lust habe. Ein kleiner Moment mitten im Tag, der nur mir gehört.</p>
+      <p>Ab Oktober reise ich mit meiner Familie. Portugal zuerst. Was danach kommt, weiß ich noch nicht. Und ich freue mich jetzt schon, dir davon zu schreiben. Von Wollläden, die ich noch nicht kenne. Von Orten, die ich noch nie gesehen habe. Von kleinen Entdeckungen, die man online nie so finden würde.</p>
+      <p>Nadelstärke 4 ist meine Komfortzone. Am liebsten stricke ich Pullover, von oben nach unten in einem Stück, trotzdem sind sie immer zu kurz. Fäden vernähe ich fast nie. Nicht jeden Fehler trenne ich auf. Manche bleiben drin. Sie geben dem Gestrickten ihre Geschichte.</p>
+      <p>Ich schreibe gerne auf echtem Papier. Ich mag Design und bin gerne umgeben von schönen Dingen.</p>
+      <p>Little Knitaly ist meine kleine Welt aus Wolle, Papier, Reisen und echter Post. Ein Stück Italien ist drin. Ein bisschen Fernweh auch. Und Platz für alle, die gern wieder Briefe bekommen würden.</p>
+      <p class="per-post">Per Post. Einmal im Monat.</p>
+      <div class="signature">Sina</div>
+    </div>
+    <div class="wer-image-wrap">
+      <div class="wer-image">
+        <div class="wer-image-placeholder">Bild folgt</div>
+      </div>
+      <p class="wer-caption">Lieblingsplatz auf dem Balkon, Meran, Frühling 2026.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: CTA -->
+<section id="briefkasten">
+  <p class="cta-subhead">Der erste Brief kommt im August 2026.<br>9€ plus Versand, monatlich kündbar.</p>
+  <a href="https://buy.stripe.com/placeholder" class="btn-terracotta">In den Briefkasten →</a>
+  <br>
+  <span class="cta-divider">◆◆◆</span>
+  <p class="cta-body">Oder trag dich ein, und ich schreibe dir, bevor der erste Brief rausgeht. Zwischendurch kleine Eindrücke, kein fester Rhythmus.</p>
+  <div class="email-form">
+    <input type="email" class="email-input" placeholder="du@beispiel.de" autocomplete="email">
+    <button class="btn-email" onclick="handleSubstack()">Eintragen →</button>
+  </div>
+</section>
+
+<!-- SECTION 5: FAQ -->
+<section id="faq">
+  <h2 class="faq-title">Häufige Fragen</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-header">
+        <span class="faq-num">01</span>
+        <span class="faq-question">Wann kommt der erste Brief?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">Im August 2026. Vorher melde ich mich per E-Mail bei dir.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-header">
+        <span class="faq-num">02</span>
+        <span class="faq-question">Was kostet der Brief?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">9 € pro Monat plus Versand, je nach Land in das ich schicke und meinem Aufenthaltsort. Rechne mit ca. 2,90 €.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-header">
+        <span class="faq-num">03</span>
+        <span class="faq-question">Wohin wird verschickt?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">Wo auch immer du gerade bist, ich schreibe dir. Weltweit.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-header">
+        <span class="faq-num">04</span>
+        <span class="faq-question">Ist das ein Strickmuster-Abo?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">Nein. Ich teile weder Strickmuster, noch Anleitungen in jedem Brief. Ich schreibe über Dinge, die mich nicht loslassen, Stricken gehört dazu, aber auch über das Reisen, den Alltag und kleine Beobachtungen.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-header">
+        <span class="faq-num">05</span>
+        <span class="faq-question">Gibt es Sendungsverfolgung?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">Nein, die gibt es nicht. Das ist der Charme, den der Brief mit sich bringt, und wenn er dann plötzlich im Briefkasten liegt, freust du dich umso mehr. Da ich nicht jeden Monat zu einem festen Tag verschicke, schreib ich dir kurz per E-Mail, damit du weißt, dass der Brief unterwegs ist.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-header">
+        <span class="faq-num">06</span>
+        <span class="faq-question">Kann ich wieder kündigen?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">Ja, monatlich. Keine Mindestlaufzeit.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-header">
+        <span class="faq-num">07</span>
+        <span class="faq-question">Gibt es ein Abo?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">Ja. Nach dem ersten Brief kannst du gerne auch auf ein jährliches Abo wechseln. Dann musst du den Brief nicht jeden Monat neu bestellen und kannst dich 12 mal im Jahr über einen Brief in deinem Briefkasten freuen.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-header">
+        <span class="faq-num">08</span>
+        <span class="faq-question">Ist der Brief nur was für Stricker:innen?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">Nein. Es ist für alle, die den kleinen Dingen im Alltag mehr Aufmerksamkeit geben möchten, für alle, die Papier vermissen und für alle, die gerne wieder schöne Post bekommen wollen.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo" aria-label="Logo-Platzhalter"></div>
+  <div class="footer-right">
+    <div class="footer-links">
+      <a href="#briefkasten">In den Briefkasten</a>
+      <span class="sep">·</span>
+      <a href="/impressum">Impressum</a>
+      <span class="sep">·</span>
+      <a href="/datenschutz">Datenschutz</a>
+    </div>
+    <span class="footer-copy">© 2026 Little Knitaly</span>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-header').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-icon').textContent = '+';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        item.querySelector('.faq-icon').textContent = '−';
+      }
+    });
+  });
+
+  // Email form -> Substack
+  function handleSubstack() {
+    const email = document.querySelector('.email-input').value.trim();
+    if (email) {
+      window.open('https://substack.com/@sinaflingelli', '_blank');
+    }
+  }
+
+  document.querySelector('.email-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') handleSubstack();
+  });
+</script>
+</body>
+</html>
