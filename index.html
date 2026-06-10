@@ -6,7 +6,8 @@
 <title>Little Knitaly</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600&family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=neue-machina@400,500,700&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #171D2B;
@@ -24,8 +25,8 @@
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 20px;
+    font-family: 'Neue Machina', 'DM Sans', sans-serif;
+    font-size: 19px;
     color: var(--navy);
     background: var(--parchment);
     -webkit-font-smoothing: antialiased;
@@ -46,11 +47,8 @@
 
   .nav-logo {
     display: block;
-    width: 40px;
-    height: 40px;
-    background: rgba(23,29,43,0.08);
-    border: 1px dashed rgba(23,29,43,0.25);
-    border-radius: 4px;
+    height: 36px;
+    width: auto;
     flex-shrink: 0;
   }
 
@@ -61,7 +59,7 @@
   }
 
   .nav-link {
-    font-family: 'Fraunces', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-weight: 400;
     font-size: 16px;
     color: var(--navy);
@@ -72,7 +70,7 @@
   }
 
   .nav-pill {
-    font-family: 'Fraunces', serif;
+    font-family: 'Neue Machina', 'DM Sans', sans-serif;
     font-weight: 500;
     font-size: 13px;
     letter-spacing: 0.06em;
@@ -107,7 +105,7 @@
   }
 
   .hero-headline {
-    font-family: 'Fraunces', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-weight: 400;
     font-size: clamp(44px, 6.5vw, 80px);
     line-height: 1.05;
@@ -122,14 +120,14 @@
 
   .hero-headline .word-ein,
   .hero-headline .word-rest {
-    font-family: 'Fraunces', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-style: normal;
     font-weight: 400;
     color: var(--navy);
   }
 
   .hero-headline .word-brief {
-    font-family: 'Fraunces', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-style: italic;
     font-weight: 400;
     color: var(--terracotta);
@@ -139,7 +137,7 @@
   }
 
   .hero-subline {
-    font-family: 'Fraunces', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-style: italic;
     font-weight: 300;
     font-size: clamp(22px, 3vw, 32px);
@@ -148,8 +146,8 @@
   }
 
   .hero-body {
-    font-family: 'Newsreader', serif;
-    font-size: 26px;
+    font-family: 'Neue Machina', 'DM Sans', sans-serif;
+    font-size: 22px;
     line-height: 1.5;
     color: var(--navy);
     max-width: 820px;
@@ -164,7 +162,7 @@
   }
 
   .hero-tag {
-    font-family: 'Fraunces', serif;
+    font-family: 'Neue Machina', 'DM Sans', sans-serif;
     font-weight: 500;
     font-size: 13px;
     letter-spacing: 0.07em;
@@ -185,8 +183,8 @@
     gap: 12px;
     background: var(--navy);
     color: #fff;
-    font-family: 'Newsreader', serif;
-    font-size: 26px;
+    font-family: 'Neue Machina', 'DM Sans', sans-serif;
+    font-size: 22px;
     font-weight: 400;
     padding: 16px 36px;
     border-radius: 100px;
@@ -216,13 +214,104 @@
 
   #hero { position: relative; }
 
-  /* ── SECTION BASE ── */
+  /* ── ZINE LINK IN HERO ── */
+  .hero-headline a.word-brief {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--terracotta);
+  }
+
+  .hero-headline a.word-brief:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--terracotta);
+  }
+
+  /* ── ZINE CAROUSEL ── */
+  .zine-carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .zine-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .zine-slide.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .zine-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(243,233,216,0.85);
+    border: 1.5px solid var(--navy);
+    color: var(--navy);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.2s;
+    padding: 0;
+  }
+
+  .carousel-btn:hover {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+    color: var(--parchment);
+  }
+
+  .carousel-prev { left: 10px; }
+  .carousel-next { right: 10px; }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+  }
+
+  .carousel-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(23,29,43,0.3);
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: background 0.2s;
+  }
+
+  .carousel-dot.active {
+    background: var(--terracotta);
+  }
   section {
     padding: var(--section-pad-v) var(--h-pad);
   }
 
   .section-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-weight: 500;
     font-size: clamp(28px, 4vw, 44px);
     letter-spacing: 0.04em;
@@ -252,7 +341,7 @@
 
   .zwei-col {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
     gap: clamp(40px, 6vw, 80px);
     align-items: start;
   }
@@ -261,12 +350,12 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: stretch;
   }
 
   .carousel {
-    width: 72%;
-    aspect-ratio: 3/4;
+    width: 100%;
+    aspect-ratio: 210/148;
     background: var(--beige);
     border: 1px solid rgba(23,29,43,0.1);
     overflow: hidden;
@@ -287,20 +376,21 @@
   .mock-letter-cover {
     background: var(--parchment);
     width: 100%;
-    max-width: 240px;
-    aspect-ratio: 3/4;
+    height: 100%;
+    max-width: none;
+    aspect-ratio: unset;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    border: 1px solid rgba(23,29,43,0.12);
-    padding: 28px;
+    gap: 10px;
+    border: none;
+    padding: 24px 40px;
     text-align: center;
   }
 
   .mock-letter-cover .lk-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'Neue Machina', 'DM Sans', sans-serif;
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 0.05em;
@@ -309,7 +399,7 @@
   }
 
   .mock-letter-cover .lk-big {
-    font-family: 'Fraunces', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-weight: 400;
     font-size: 36px;
     color: var(--navy);
@@ -322,7 +412,7 @@
   }
 
   .mock-letter-cover .issue-label {
-    font-family: 'Fraunces', serif;
+    font-family: 'Neue Machina', 'DM Sans', sans-serif;
     font-weight: 500;
     font-size: 13px;
     color: var(--navy);
@@ -335,14 +425,14 @@
   }
 
   .mock-letter-cover .author {
-    font-family: 'Newsreader', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 12px;
     color: var(--navy);
     opacity: 0.7;
   }
 
   .mock-letter-cover .k-logo {
-    font-family: 'Fraunces', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-style: italic;
     font-size: 20px;
     color: var(--navy);
@@ -350,9 +440,9 @@
   }
 
   .carousel-caption {
-    font-family: 'Newsreader', serif;
+    font-family: 'DM Sans', sans-serif;
     font-style: italic;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--navy);
     opacity: 0.65;
     text-align: right;
@@ -361,8 +451,8 @@
   }
 
   .brief-intro {
-    font-size: 20px;
-    line-height: 1.6;
+    font-size: 19px;
+    line-height: 1.65;
     margin-bottom: 28px;
   }
 
@@ -375,8 +465,8 @@
   }
 
   .brief-bullets li {
-    font-size: 20px;
-    line-height: 1.6;
+    font-size: 19px;
+    line-height: 1.65;
     display: flex;
     gap: 12px;
     align-items: flex-start;
@@ -388,8 +478,8 @@
   }
 
   .brief-closing p {
-    font-size: 20px;
-    line-height: 1.65;
+    font-size: 19px;
+    line-height: 1.7;
     margin-bottom: 16px;
   }
 
@@ -406,13 +496,13 @@
   }
 
   .wer-text p {
-    font-size: 20px;
-    line-height: 1.7;
+    font-size: 19px;
+    line-height: 1.75;
     margin-bottom: 20px;
   }
 
   .wer-text .per-post {
-    font-size: 20px;
+    font-size: 19px;
     margin-bottom: 4px;
   }
 
@@ -481,7 +571,7 @@
   }
 
   .cta-subhead {
-    font-family: 'Fraunces', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-weight: 400;
     font-size: clamp(22px, 3vw, 32px);
     line-height: 1.4;
@@ -495,8 +585,8 @@
     gap: 12px;
     background: var(--terracotta);
     color: var(--parchment) !important;
-    font-family: 'Newsreader', serif;
-    font-size: 26px;
+    font-family: 'Neue Machina', 'DM Sans', sans-serif;
+    font-size: 22px;
     font-weight: 400;
     padding: 16px 36px;
     border-radius: 100px;
@@ -519,63 +609,36 @@
   }
 
   .cta-body {
-    font-family: 'Newsreader', serif;
-    font-size: 22px;
-    line-height: 1.55;
+    font-family: 'Neue Machina', 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
     color: var(--parchment);
+    opacity: 0.8;
     max-width: 680px;
-    margin: 0 auto 36px;
+    margin: 0 auto 24px;
   }
 
-  .email-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    max-width: 520px;
-    margin: 0 auto;
-  }
-
-  .email-input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    border-bottom: 1.5px solid var(--parchment);
-    padding: 12px 4px;
-    font-family: 'Newsreader', serif;
-    font-size: 20px;
-    color: var(--parchment);
-    outline: none;
-    min-width: 0;
-  }
-
-  .email-input::placeholder {
-    color: rgba(243,233,216,0.45);
-  }
-
-  .btn-email {
+  .btn-subscribe {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--parchment);
-    color: var(--navy) !important;
-    font-family: 'Newsreader', serif;
-    font-size: 20px;
+    background: transparent;
+    color: var(--parchment) !important;
+    font-family: 'Neue Machina', 'DM Sans', sans-serif;
+    font-size: 15px;
     font-weight: 400;
-    padding: 12px 24px;
+    padding: 10px 22px;
     border-radius: 100px;
+    border: 1px solid rgba(243,233,216,0.35);
     text-decoration: none;
-    border: none;
-    cursor: pointer;
-    margin-left: 16px;
-    transition: background 0.2s, color 0.2s;
-    white-space: nowrap;
-    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+    opacity: 0.75;
   }
 
-  .btn-email:hover {
-    background: var(--pink);
-    color: var(--navy) !important;
+  .btn-subscribe:hover {
+    background: rgba(243,233,216,0.1);
+    border-color: var(--parchment);
+    opacity: 1;
   }
 
   /* ── SECTION 5: FAQ ── */
@@ -584,7 +647,7 @@
   }
 
   .faq-title {
-    font-family: 'Fraunces', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-weight: 500;
     font-size: clamp(30px, 4.5vw, 52px);
     color: var(--navy);
@@ -608,13 +671,14 @@
   }
 
   .faq-item:hover .faq-icon {
-    background: var(--pink);
-    border-color: var(--pink);
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+    color: var(--parchment);
   }
 
   .faq-item:hover .faq-question,
   .faq-item:hover .faq-num {
-    color: var(--pink);
+    color: var(--terracotta);
   }
 
   .faq-header {
@@ -625,7 +689,7 @@
   }
 
   .faq-num {
-    font-family: 'Fraunces', serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 400;
     font-size: 13px;
     color: var(--navy);
@@ -636,7 +700,7 @@
   }
 
   .faq-question {
-    font-family: 'Fraunces', serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 400;
     font-size: 20px;
     color: var(--navy);
@@ -663,15 +727,21 @@
   }
 
   .faq-item.open .faq-icon {
-    background: var(--pink);
-    border-color: var(--pink);
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+    color: var(--parchment);
+  }
+
+  .faq-item.open .faq-question,
+  .faq-item.open .faq-num {
+    color: var(--terracotta);
   }
 
   .faq-answer {
     display: none;
     padding: 0 0 24px 48px;
-    font-family: 'Newsreader', serif;
-    font-size: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
     line-height: 1.65;
     color: var(--navy);
     max-width: calc(100% - 60px);
@@ -694,11 +764,8 @@
 
   .footer-logo {
     display: block;
-    width: 40px;
-    height: 40px;
-    background: rgba(243,233,216,0.12);
-    border: 1px dashed rgba(243,233,216,0.35);
-    border-radius: 4px;
+    height: 36px;
+    width: auto;
     flex-shrink: 0;
   }
 
@@ -718,7 +785,7 @@
   }
 
   .footer-links a {
-    font-family: 'Fraunces', serif;
+    font-family: 'DM Sans', sans-serif;
     font-weight: 400;
     font-size: 15px;
     color: var(--parchment);
@@ -737,7 +804,7 @@
   }
 
   .footer-copy {
-    font-family: 'Fraunces', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 13px;
     color: var(--parchment);
     opacity: 0.55;
@@ -764,16 +831,21 @@
     }
 
     .carousel {
-      width: 80%;
+      width: 100%;
     }
 
     .carousel-caption {
       text-align: center;
-      width: 80%;
+      width: 100%;
     }
 
     .wer-image-wrap {
       order: -1;
+      width: 100%;
+    }
+
+    .wer-image {
+      width: 100%;
     }
 
     .wer-caption {
@@ -791,7 +863,45 @@
     }
 
     .hero-body {
-      font-size: 22px;
+      font-size: 17px;
+    }
+
+    .hero-subline {
+      font-size: clamp(18px, 2.5vw, 24px);
+    }
+
+    .brief-intro {
+      font-size: 17px;
+    }
+
+    .wer-text p {
+      font-size: 17px;
+    }
+
+    .wer-text .per-post {
+      font-size: 17px;
+    }
+
+    .cta-subhead {
+      font-size: clamp(22px, 5vw, 30px);
+    }
+
+    .cta-body {
+      font-size: 14px;
+    }
+
+    .faq-question {
+      font-size: 17px;
+    }
+
+    .faq-answer {
+      font-size: 16px;
+    }
+
+    .btn-primary,
+    .btn-terracotta {
+      font-size: 18px;
+      padding: 14px 28px;
     }
 
     .email-form {
@@ -831,7 +941,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo" aria-label="Logo-Platzhalter"></div>
+  <a href="#"><img src="little_knitaly_logo_darkgreen.png" alt="little knitaly" class="nav-logo"></a>
   <div class="nav-right">
     <a href="#wer-schreibt" class="nav-link">Wer schreibt?</a>
     <a href="#briefkasten" class="nav-pill">IN DEN BRIEFKASTEN</a>
@@ -843,14 +953,14 @@
   <div class="hero-inner">
     <h1 class="hero-headline">
       <span class="word-ein">Ein</span>
-      <span class="word-brief">Brief</span>
+      <a href="#einen-brief" class="word-brief">Zine</a>
       <span class="word-rest">von mir an dich.</span>
     </h1>
     <p class="hero-subline">Auf Papier. Per Post. Jeden Monat.</p>
     <p class="hero-body">Über Stricken, Reisen, kleine Beobachtungen und das, was passiert,<br>wenn man losgeht, bevor man genau weiß, wohin.</p>
     <div class="hero-tags">
-      <span class="hero-tag"><span class="diamond">◆</span> ERSTER BRIEF: AUGUST 2026</span>
-      <span class="hero-tag"><span class="diamond">◆</span> AUS MERAN & VON UNTERWEGS</span>
+      <span class="hero-tag"><span class="diamond">◆</span> ERSTES HEFT: AUGUST 2026</span>
+      <span class="hero-tag"><span class="diamond">◆</span> VERSCHICKT AUS DER STADT, IN DER ICH GERADE LEBE</span>
     </div>
     <a href="#briefkasten" class="btn-primary">In den Briefkasten →</a>
   </div>
@@ -861,45 +971,48 @@
   </div>
 </section>
 
-<!-- SECTION 2: EINEN BRIEF? -->
+<!-- SECTION 2: EIN ZINE? -->
 <section id="einen-brief">
-  <h2 class="section-title">Einen Brief?</h2>
+  <h2 class="section-title">Ein Zine?</h2>
   <div class="zwei-col">
     <div class="carousel-wrap">
       <div class="carousel">
-        <div class="carousel-placeholder">
-          <div class="mock-letter-cover">
-            <span class="lk-title">little knitaly</span>
-            <span class="lk-big">Post</span>
-            <svg class="mock-timer" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="35" cy="38" r="26" stroke="#171D2B" stroke-width="1.5" fill="#F3E9D8"/>
-              <path d="M28 14h14M35 14v4" stroke="#171D2B" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="35" cy="38" r="3" fill="#171D2B"/>
-              <line x1="35" y1="38" x2="35" y2="24" stroke="#171D2B" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="35" y1="38" x2="44" y2="38" stroke="#171D2B" stroke-width="1" stroke-linecap="round"/>
-              <text x="35" y="58" font-family="Georgia, serif" font-size="7" fill="#171D2B" text-anchor="middle" opacity="0.6">25 min</text>
-            </svg>
-            <span class="issue-label">August Issue</span>
-            <span class="diamonds-small">◆◆◆</span>
-            <span class="author">von Sina Flingelli</span>
-            <span class="k-logo">k</span>
+        <!-- Zine carousel: shows images zine-01.jpg through zine-08.jpg when live -->
+        <!-- Until then, shows cover placeholder -->
+        <div class="zine-carousel" id="zineCarousel">
+          <div class="zine-slide active">
+            <img src="Zine_01_Seite_1.jpg" alt="Zine Seite 1" onerror="this.parentElement.querySelector('.zine-fallback').style.display='flex'; this.style.display='none';">
+            <div class="zine-fallback" style="display:none;">
+              <div class="mock-letter-cover">
+                <span class="lk-title">little knitaly</span>
+                <span class="lk-big">Zine</span>
+                <svg class="mock-timer" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="35" cy="38" r="26" stroke="#171D2B" stroke-width="1.5" fill="#F3E9D8"/>
+                  <path d="M28 14h14M35 14v4" stroke="#171D2B" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="35" cy="38" r="3" fill="#171D2B"/>
+                  <line x1="35" y1="38" x2="35" y2="24" stroke="#171D2B" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="35" y1="38" x2="44" y2="38" stroke="#171D2B" stroke-width="1" stroke-linecap="round"/>
+                  <text x="35" y="58" font-family="Georgia, serif" font-size="7" fill="#171D2B" text-anchor="middle" opacity="0.6">Nr. 01</text>
+                </svg>
+                <span class="issue-label">August 2026</span>
+                <span class="diamonds-small">◆◆◆</span>
+                <span class="author">von Sina Flingelli</span>
+                <span class="k-logo">k</span>
+              </div>
+            </div>
           </div>
         </div>
+        <button class="carousel-btn carousel-prev" aria-label="Vorherige Seite">‹</button>
+        <button class="carousel-btn carousel-next" aria-label="Nächste Seite">›</button>
+        <div class="carousel-dots" id="carouselDots"></div>
       </div>
-      <p class="carousel-caption">Einblick in einen Brief.</p>
+      <p class="carousel-caption">Einblick ins Zine.</p>
     </div>
     <div class="brief-right">
-      <p class="brief-intro">Ja, tatsächlich. Ich schreibe dir jeden Monat einen echten Brief (so wie früher in den 90ern, als wir Brieffreundschaften hatten)</p>
-      <ul class="brief-bullets">
-        <li><span class="diamond">◆</span><span>Über Beobachtungen und Gedanken die auftauchen, wenn ich jeden Nachmittag für 25min stricke.</span></li>
-        <li><span class="diamond">◆</span><span>Von regional hergestellten Wollen in fernen Orten.</span></li>
-        <li><span class="diamond">◆</span><span>Von kleinen Entdeckungen, aus mir noch unbekannten Städten, die man online nie so finden würde.</span></li>
-        <li><span class="diamond">◆</span><span>Vom Reisen und loszugehen, bevor man eigentlich weiß wohin.</span></li>
-      </ul>
-      <div class="brief-closing">
-        <p>Einmal im Monat liegt ein kleines Heft in deinem Briefkasten, auf schwerem Papier gedruckt, immer ein wenig anders, zugeklebt und ohne Umschlag. Mit Briefmarke und Poststempel drauf.</p>
-        <p>Die ersten Briefe schicke ich aus Meran, ab Oktober dann aus unterschiedlichen Städten und Ländern.</p>
-      </div>
+      <p class="brief-intro">Ja, genau, die kleine Schwester von "Magazine". Ein dünnes Heftchen, ein handgemachtes Stück Kunst, von mir an dich, geschrieben aus der Stadt, in der wir gerade leben, verschickt mit der Post, jeden Monat.</p>
+      <p class="brief-intro">Ich erzähle dir vom Stricken, von Menschen hinter lokal produzierten Garnen, von kleinen Wollgeschäften in Städten, die ich dadurch mit anderen Augen sehe. Vom Reisen, von versteckten Cafés, in denen ich Zeit zum Stricken finde, von kleinen Entdeckungen, die man online nie so finden würde. Vom Losgehen, bevor man überhaupt weiß, wohin.</p>
+      <p class="brief-intro">Jedes Heft steht für sich, aber zusammen ergeben sie eine Geschichte. Es geht um Zoffi, meine innere Stimme, und mich. Manchmal lege ich noch eine Kleinigkeit bei: eine Karte, ein Stück Wolle, einen Sticker, irgendetwas Besonderes, das ich unterwegs finde.</p>
+      <p class="brief-intro">Und dann landet es in deinem Briefkasten, zwischen Werbung und Rechnungen, endlich wieder etwas, auf das du dich freuen kannst. Ein Erlebnis auf dickem Papier gedruckt. Du kannst es in den Händen halten, aufheben, sogar sammeln.</p>
     </div>
   </div>
 </section>
@@ -909,17 +1022,17 @@
   <h2 class="section-title">Wer schreibt</h2>
   <div class="wer-grid">
     <div class="wer-text">
-      <p>Ich lebe mit meinem Mann Jakob und unseren drei Kindern in Meran, Südtirol, und stricke jeden Nachmittag 25 Minuten, kurz bevor ich unsere jüngste Tochter aus dem Kindergarten abhole. Im Winter stricke ich im Schaukelstuhl, im Sommer auf dem Balkon. Immer mit grünem Tee. Ich stricke an dem weiter, worauf ich gerade Lust habe. Ein kleiner Moment mitten im Tag, der nur mir gehört.</p>
-      <p>Ab Oktober reise ich mit meiner Familie. Portugal zuerst. Was danach kommt, weiß ich noch nicht. Und ich freue mich jetzt schon, dir davon zu schreiben. Von Wollläden, die ich noch nicht kenne. Von Orten, die ich noch nie gesehen habe. Von kleinen Entdeckungen, die man online nie so finden würde.</p>
-      <p>Nadelstärke 4 ist meine Komfortzone. Am liebsten stricke ich Pullover, von oben nach unten in einem Stück, trotzdem sind sie immer zu kurz. Fäden vernähe ich fast nie. Nicht jeden Fehler trenne ich auf. Manche bleiben drin. Sie geben dem Gestrickten ihre Geschichte.</p>
+      <p>Ich lebe mit meinem Mann Jakob und unseren drei Kindern in Meran, Südtirol. Jeden Tag stricke ich für 25 Minuten und trinke dabei grünen Tee. Ich stricke an dem weiter, worauf ich gerade Lust habe. Ein kleiner Moment mitten im Tag, der nur mir gehört. Ein Moment, in dem ich nichts von meiner inneren Stimme, Zoffi, höre. Ein Moment, in dem ich von keinem unterbrochen werden möchte.</p>
+      <p>Ab Oktober reisen wir zu fünft für mehrere Monate durch die Welt. Portugal zuerst. Was danach kommt, wissen wir noch nicht. Den einzigen Plan, den ich habe: Ein Zine herausbringen und einmal pro Monat per Post verschicken.</p>
+      <p>Mein Strickzeug hab ich immer dabei – auch wenn ich es oft nicht auspacke. Nadelstärke 4 ist meine Komfortzone. Am liebsten stricke ich Pullover, von oben nach unten in einem Stück, trotzdem sind sie meistens zu kurz. Fäden vernähe ich (fast) nie. Nicht jeden Fehler trenne ich auf. Manche bleiben drin. Sie geben dem Gestrickten ihre Geschichte.</p>
       <p>Ich schreibe gerne auf echtem Papier. Ich mag Design und bin gerne umgeben von schönen Dingen.</p>
-      <p>Little Knitaly ist meine kleine Welt aus Wolle, Papier, Reisen und echter Post. Ein Stück Italien ist drin. Ein bisschen Fernweh auch. Und Platz für alle, die gern wieder Briefe bekommen würden.</p>
+      <p>little knitaly ist mein kleines eigenes Projekt, meine kleine Welt aus Stricken, Papier, Reisen und echter Post.</p>
       <p class="per-post">Per Post. Einmal im Monat.</p>
       <div class="signature">Sina</div>
     </div>
     <div class="wer-image-wrap">
       <div class="wer-image">
-        <div class="wer-image-placeholder">Bild folgt</div>
+        <img src="sina_little_knitaly_stricken.jpg" alt="Sina strickt auf dem Balkon, Meran, Frühling 2026">
       </div>
       <p class="wer-caption">Lieblingsplatz auf dem Balkon, Meran, Frühling 2026.</p>
     </div>
@@ -928,15 +1041,12 @@
 
 <!-- SECTION 4: CTA -->
 <section id="briefkasten">
-  <p class="cta-subhead">Der erste Brief kommt im August 2026.<br>9€ plus Versand, monatlich kündbar.</p>
-  <a href="https://buy.stripe.com/placeholder" class="btn-terracotta">In den Briefkasten →</a>
+  <p class="cta-subhead">Das erste Zine kommt im August 2026.<br>9€ plus Versand, monatlich kündbar.</p>
+  <a href="https://buy.stripe.com/4gMbIU6Jaa0obCc6C5fnO00" class="btn-terracotta">In den Briefkasten →</a>
   <br>
   <span class="cta-divider">◆◆◆</span>
-  <p class="cta-body">Oder trag dich ein, und ich schreibe dir, bevor der erste Brief rausgeht. Zwischendurch kleine Eindrücke, kein fester Rhythmus.</p>
-  <div class="email-form">
-    <input type="email" class="email-input" placeholder="du@beispiel.de" autocomplete="email">
-    <button class="btn-email" onclick="handleSubstack()">Eintragen →</button>
-  </div>
+  <p class="cta-body">Oder trag dich ein, und ich schreibe dir, bevor das erste Zine rausgeht. Zwischendurch kleine Eindrücke, kein fester Rhythmus.</p>
+  <a href="https://littleknitaly.substack.com/subscribe" target="_blank" class="btn-subscribe">Auf die Warteliste →</a>
 </section>
 
 <!-- SECTION 5: FAQ -->
@@ -946,7 +1056,7 @@
     <div class="faq-item">
       <div class="faq-header">
         <span class="faq-num">01</span>
-        <span class="faq-question">Wann kommt der erste Brief?</span>
+        <span class="faq-question">Wann kommt das erste Zine?</span>
         <span class="faq-icon">+</span>
       </div>
       <div class="faq-answer">Im August 2026. Vorher melde ich mich per E-Mail bei dir.</div>
@@ -954,7 +1064,7 @@
     <div class="faq-item">
       <div class="faq-header">
         <span class="faq-num">02</span>
-        <span class="faq-question">Was kostet der Brief?</span>
+        <span class="faq-question">Was kostet das Zine?</span>
         <span class="faq-icon">+</span>
       </div>
       <div class="faq-answer">9 € pro Monat plus Versand, je nach Land in das ich schicke und meinem Aufenthaltsort. Rechne mit ca. 2,90 €.</div>
@@ -973,7 +1083,7 @@
         <span class="faq-question">Ist das ein Strickmuster-Abo?</span>
         <span class="faq-icon">+</span>
       </div>
-      <div class="faq-answer">Nein. Ich teile weder Strickmuster, noch Anleitungen in jedem Brief. Ich schreibe über Dinge, die mich nicht loslassen, Stricken gehört dazu, aber auch über das Reisen, den Alltag und kleine Beobachtungen.</div>
+      <div class="faq-answer">Nein. Ich teile weder Strickmuster noch Anleitungen im Zine. Ich schreibe über Dinge, die mich nicht loslassen. Stricken gehört dazu, aber auch das Reisen, der Alltag und kleine Beobachtungen.</div>
     </div>
     <div class="faq-item">
       <div class="faq-header">
@@ -981,7 +1091,7 @@
         <span class="faq-question">Gibt es Sendungsverfolgung?</span>
         <span class="faq-icon">+</span>
       </div>
-      <div class="faq-answer">Nein, die gibt es nicht. Das ist der Charme, den der Brief mit sich bringt, und wenn er dann plötzlich im Briefkasten liegt, freust du dich umso mehr. Da ich nicht jeden Monat zu einem festen Tag verschicke, schreib ich dir kurz per E-Mail, damit du weißt, dass der Brief unterwegs ist.</div>
+      <div class="faq-answer">Nein, die gibt es nicht. Das ist der Charme, den das Zine mit sich bringt, und wenn es dann plötzlich im Briefkasten liegt, freust du dich umso mehr. Da ich nicht jeden Monat zu einem festen Tag verschicke, schreib ich dir kurz per E-Mail, damit du weißt, dass es unterwegs ist.</div>
     </div>
     <div class="faq-item">
       <div class="faq-header">
@@ -997,12 +1107,12 @@
         <span class="faq-question">Gibt es ein Abo?</span>
         <span class="faq-icon">+</span>
       </div>
-      <div class="faq-answer">Ja. Nach dem ersten Brief kannst du gerne auch auf ein jährliches Abo wechseln. Dann musst du den Brief nicht jeden Monat neu bestellen und kannst dich 12 mal im Jahr über einen Brief in deinem Briefkasten freuen.</div>
+      <div class="faq-answer">Ja. Nach dem ersten Zine kannst du gerne auch auf ein jährliches Abo wechseln. Dann musst du nicht jeden Monat neu bestellen und kannst dich 12 Mal im Jahr über ein Heft in deinem Briefkasten freuen.</div>
     </div>
     <div class="faq-item">
       <div class="faq-header">
         <span class="faq-num">08</span>
-        <span class="faq-question">Ist der Brief nur was für Stricker:innen?</span>
+        <span class="faq-question">Ist das Zine nur was für Stricker:innen?</span>
         <span class="faq-icon">+</span>
       </div>
       <div class="faq-answer">Nein. Es ist für alle, die den kleinen Dingen im Alltag mehr Aufmerksamkeit geben möchten, für alle, die Papier vermissen und für alle, die gerne wieder schöne Post bekommen wollen.</div>
@@ -1012,14 +1122,14 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo" aria-label="Logo-Platzhalter"></div>
+  <a href="#"><img src="little_knitaly_logo_cream.png" alt="little knitaly" class="footer-logo"></a>
   <div class="footer-right">
     <div class="footer-links">
       <a href="#briefkasten">In den Briefkasten</a>
       <span class="sep">·</span>
-      <a href="/impressum">Impressum</a>
+      <a href="impressum.html">Impressum</a>
       <span class="sep">·</span>
-      <a href="/datenschutz">Datenschutz</a>
+      <a href="datenschutz.html">Datenschutz</a>
     </div>
     <span class="footer-copy">© 2026 Little Knitaly</span>
   </div>
@@ -1041,17 +1151,60 @@
     });
   });
 
-  // Email form -> Substack
-  function handleSubstack() {
-    const email = document.querySelector('.email-input').value.trim();
-    if (email) {
-      window.open('https://substack.com/@sinaflingelli', '_blank');
-    }
-  }
+  // Zine carousel
+  (function() {
+    const totalSlides = 8; // zine-01.jpg through zine-08.jpg
+    const carousel = document.getElementById('zineCarousel');
+    const dotsContainer = document.getElementById('carouselDots');
+    let current = 0;
+    const slides = [];
 
-  document.querySelector('.email-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') handleSubstack();
-  });
+    // Build slides dynamically
+    // Slide 0 already exists (with fallback). Add slides 1-7.
+    const existingSlide = carousel.querySelector('.zine-slide');
+    slides.push(existingSlide);
+
+    for (let i = 2; i <= totalSlides; i++) {
+      const slide = document.createElement('div');
+      slide.className = 'zine-slide';
+      const img = document.createElement('img');
+      img.src = `Zine_01_Seite_${i}.jpg`;
+      img.alt = `Zine Seite ${i}`;
+      // If image fails, hide the whole carousel nav (images not yet available)
+      slide.appendChild(img);
+      carousel.appendChild(slide);
+      slides.push(slide);
+    }
+
+    // Check if any image loads; if not, hide prev/next buttons
+    let anyLoaded = false;
+    slides[0].querySelector('img')?.addEventListener('load', () => { anyLoaded = true; });
+    slides[0].querySelector('img')?.addEventListener('error', () => {
+      document.querySelector('.carousel-prev').style.display = 'none';
+      document.querySelector('.carousel-next').style.display = 'none';
+      dotsContainer.style.display = 'none';
+    });
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Seite ${i + 1}`);
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goTo(n) {
+      slides[current].classList.remove('active');
+      dotsContainer.children[current].classList.remove('active');
+      current = (n + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dotsContainer.children[current].classList.add('active');
+    }
+
+    document.querySelector('.carousel-prev').addEventListener('click', () => goTo(current - 1));
+    document.querySelector('.carousel-next').addEventListener('click', () => goTo(current + 1));
+  })();
 </script>
 </body>
 </html>
